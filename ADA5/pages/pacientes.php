@@ -1,10 +1,14 @@
 <h1>pacientes</h1>
 
-<li><button>ver</button></li>
-<li><button>agregar</button></li>
-<li><button>quitar</button></li>
-<li><button>modificar</button></li>
+<ul>
+    <li><button>agregar</button></li>
+    <li><button>quitar</button></li>
+    <li><button>modificar</button></li>
+</ul>
 
+<!-- estas son pruebas de botones y tablas, aun no tiene funcionalidad
+pero se pueden agregar funcionalidades internas con parametros atravez
+de codigo interno-->
 <style>
     table {
         border-collapse: collapse;
@@ -25,6 +29,7 @@
             <th>Nombre</th>
             <th>Edad</th>
             <th>Diagnóstico</th>
+            <th>Acciones</th>
         </tr>
     </thead>
     <tbody>
@@ -32,11 +37,13 @@
             <td>John Doe</td>
             <td>30</td>
             <td>Resfriado</td>
+            <td><button>ver</button></td>
         </tr>
         <tr>
             <td>Jane Smith</td>
             <td>25</td>
             <td>Gripe</td>
+            <td><button>ver</button></td>
         </tr>
     </tbody>
 </table>
