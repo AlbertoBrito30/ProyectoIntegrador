@@ -1,39 +1,51 @@
 <?php
 $accion = $_POST['accion'] ?? '';
 
-//REGISTRAR SERVICIO
-if ($accion === 'crear_servicio') {
-    $servicio = trim($_POST['servicio'] ?? '');
-    $duracion = trim($_POST['duracion'] ?? '');
-    $precio = (float) ($_POST['precio'] ?? 0);
+$id = (int) ($_POST['id_servicio'] ?? 0);
+$servicio = trim($_POST['servicio'] ?? '');
+$duracion = trim($_POST['duracion'] ?? '');
+$precio = (float) ($_POST['precio'] ?? 0);
+$activo = (int) ($_POST['activo'] ?? 1);
+$nuevo_estado = (int) ($_POST['nuevo_estado'] ?? 0);
 
-    $stmt = $conection->prepare("INSERT INTO servicios (servicio, duracion, precio, activo) VALUES (?, ?, ?, 1)");
-    $stmt->bind_param("ssd", $servicio, $duracion, $precio);
+function consulta(string $consulta, string $tipos ,mixed ...$params ): void {
+    global $conection;
+    $stmt = $conection->prepare($consulta);
+    $stmt->bind_param($tipos, ...$params);
     $stmt->execute();
+    $stmt->close();
+    header("Location: index.php?page=servicios");
+    exit;
 }
 
-//EDITAR SERVICIO
-if ($accion === 'editar_servicio') {
-    $id = (int) ($_POST['id_servicio'] ?? 0);
-    $servicio = trim($_POST['servicio'] ?? '');
-    $duracion = trim($_POST['duracion'] ?? '');
-    $precio = (float) ($_POST['precio'] ?? 0);
-    $activo = (int) ($_POST['activo'] ?? 1);
+switch ($accion){
+    case 'crear_servicio':
+        consulta(
+            'INSERT INTO servicios (servicio, duracion, precio, activo) VALUES (?, ?, ?, 1)',
+            'ssd',
+            $servicio, $duracion, $precio
+        );
+        break;
 
-    $stmt = $conection->prepare("UPDATE servicios SET servicio = ?, duracion = ?, precio = ?, activo = ? WHERE id_servicio = ?");
-    $stmt->bind_param("ssdii", $servicio, $duracion, $precio, $activo, $id);
-    $stmt->execute();
+    case 'editar_servicio':
+        consulta(
+            "UPDATE servicios SET servicio = ?, duracion = ?, precio = ?, activo = ? WHERE id_servicio = ?",
+            "ssdii",
+            $servicio, $duracion, $precio, $activo, $id
+        );
+        break;
+
+    case "cambiar_estado_servicio":
+        consulta(
+            "UPDATE servicios SET activo = ? WHERE id_servicio = ?",
+            "ii",
+            $nuevo_estado, $id
+        );
+        break;
+
 }
 
-//CAMBIAR ESTADO DEL SERVICIO
-if ($accion === 'cambiar_estado_servicio') {
-    $id = (int) ($_POST['id_servicio'] ?? 0);
-    $nuevo_estado = (int) ($_POST['nuevo_estado'] ?? 0);
 
-    $stmt = $conection->prepare("UPDATE servicios SET activo = ? WHERE id_servicio = ?");
-    $stmt->bind_param("ii", $nuevo_estado, $id);
-    $stmt->execute();
-}
 
 $total_servicios = $conection->query("SELECT COUNT(*) AS total FROM servicios")->fetch_assoc()['total'];
 $activos_servicios = $conection->query("SELECT COUNT(*) AS total FROM servicios WHERE activo = 1")->fetch_assoc()['total'];
