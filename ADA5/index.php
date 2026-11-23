@@ -1,4 +1,8 @@
-<?php require_once __DIR__ . '/config/sesion.php'; ?>
+<?php
+require_once __DIR__ . '/config/sesion.php';
+
+$page = $_GET['page'] ?? '';
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -11,7 +15,7 @@
     <?php include 'components/header.php'; ?>
     <main>
         <?php
-        switch ($_GET['page'] ?? '') {
+        switch ($page) {
             case 'login':
                 include 'pages/login.php';
                 break;
@@ -28,9 +32,11 @@
                 include 'pages/facturas.php';
                 break;
             default:
+                echo '<h2>Bienvenido a Let\'s go vet</h2>';
+                echo '<p>Sistema de gestión veterinaria para el control de pacientes, servicios, inventario y facturas.</p>';
+                echo '<p>Equipo: Alberto de Jesús Brito Ocampo y Jesús Israel Catzim Tzuc.</p>';
                 break;
         }
-    
         ?>
     </main>
 </body>
