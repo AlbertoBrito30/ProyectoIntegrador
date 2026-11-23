@@ -9,19 +9,6 @@
 <!-- estas son pruebas de botones y tablas, aun no tiene funcionalidad
 pero se pueden agregar funcionalidades internas con parametros atravez
 de codigo interno-->
-<style>
-    table {
-        border-collapse: collapse;
-    }
-    th,td {
-        border: 1px solid black;
-        padding: 3px;
-    }
-    li {
-        display: inline;
-        margin-right: 1rem;
-    }
-</style>
 
 <table>
     <thead>
@@ -37,13 +24,31 @@ de codigo interno-->
             <td>John Doe</td>
             <td>30</td>
             <td>Resfriado</td>
-            <td><button>ver</button></td>
+            <td>
+                <button popovertarget="mas-1">ver</button>
+                <div id="mas-1" popover>
+                    <p>
+                        datos de la mascota
+                    </p>
+                    <button popovertarget="mas-1" popovertargetaction='hide' >cerrar</button>
+                </div>
+            </td>
         </tr>
         <tr>
             <td>Jane Smith</td>
             <td>25</td>
             <td>Gripe</td>
-            <td><button>ver</button></td>
+            <td>
+                <button popovertarget="mas-2">ver</button>
+
+                <div id="mas-2" popover>
+                    <p>
+                        datos de la mascota
+                    </p>
+                    <button popovertarget="mas-2" popovertargetaction="hide">cerrrar</button>
+                </div>
+
+            </td>
         </tr>
     </tbody>
 </table>

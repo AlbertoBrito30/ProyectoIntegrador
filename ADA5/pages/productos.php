@@ -29,7 +29,8 @@ $resultado = $conection->query("SELECT id_producto, producto, precio, stock, id_
                     <input type="number" name="cantidad" value="1" min="1" max="<?= $row['stock'] ?>" <?= $row['stock'] <= 0 ? 'disabled' : '' ?>>
             </td>
             <td>
-                    <button type="submit" <?= $row['stock'] <= 0 ? 'disabled' : '' ?>>Añadir</button>
+                    <button>editar</button>
+                    <button type="submit" <?= $row['stock'] <= 0 ? 'disabled' : '' ?>>Añadir al carrito</button>
                 </form>
             </td>
         </tr>
