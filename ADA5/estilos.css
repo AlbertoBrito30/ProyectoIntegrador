@@ -1,0 +1,24 @@
+/* Tablas */
+table {
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+}
+
+/* Menu de navegacion */
+li {
+    display: inline;
+    margin-right: 1rem;
+}
+
+/* Mensajes de error en login */
+.error {
+    color: red;
+}
+
+/* Ancho fijo para el campo cantidad en productos y facturas */
+input[name="cantidad"] {
+    width: 60px;
+}

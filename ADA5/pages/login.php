@@ -1,6 +1,6 @@
 <h1>Iniciar sesión</h1>
 <?php if (isset($_GET['error'])): ?>
-    <p style="color:red;">
+    <p class="error">
         <?= $_GET['error'] === 'registro' ? 'Error al registrar usuario.' : 'Usuario o contraseña incorrectos.' ?>
     </p>
 <?php endif; ?>
