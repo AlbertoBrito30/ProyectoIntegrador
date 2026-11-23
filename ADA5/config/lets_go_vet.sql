@@ -21,7 +21,7 @@ SET time_zone = "+00:00";
 -- Base de datos: `lets_go_vet`
 --
 
-DELIMITER $$
+DELIMITER //
 --
 -- Procedimientos
 --
@@ -45,7 +45,7 @@ CREATE PROCEDURE `sp_registrar_producto` (IN `p_codigo` VARCHAR(50), IN `p_produ
         SET p_mensaje = CONCAT('Producto registrado con ID: ', p_nuevo_id);
         COMMIT;
     END IF;
-END$$
+END//
 
 --
 -- Funciones

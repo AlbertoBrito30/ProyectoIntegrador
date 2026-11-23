@@ -8,9 +8,33 @@ th, td {
 }
 
 /* Menu de navegacion */
+ul{
+    width: 100vw;
+    position: relative;
+    display: flex;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
+    list-style: none;
+    box-sizing: border-box;
+}
 li {
-    display: inline;
-    margin-right: 1rem;
+    flex: 1;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 5px;
+    display: flex;
+    border: 1px solid;
+    border-radius: 0.28rem;
+}
+li a{
+    display: block;
+    width: 100%;
 }
 
 /* Mensajes de error en login */
