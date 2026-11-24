@@ -1,21 +1,153 @@
-/* Tablas */
-table {
-    border-collapse: collapse;
+/* Estilos generales y paleta */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #faf6ee;
+    color: #2b2b2b;
+    text-align: center;
 }
-th, td {
-    border: 1px solid black;
-    padding: 8px;
+
+/* Encabezado y logo */
+header {
+    background-color: #f3ead8;
+    padding-top: 15px;
+}
+
+header h1 {
+    margin: 0 0 8px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: #1f3a5f;
+}
+
+.logo {
+    height: 55px;
+    width: auto;
+}
+
+header p {
+    margin: 0 0 12px 0;
 }
 
 /* Menu de navegacion */
-li {
-    display: inline;
-    margin-right: 1rem;
+nav ul {
+    width: 100%;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    box-sizing: border-box;
+    background-color: #efe3cc;
+}
+
+nav li {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #d4c5a9;
+    border-radius: 0.28rem;
+}
+
+nav li a {
+    display: block;
+    width: 100%;
+    padding: 10px 5px;
+    text-decoration: none;
+    color: #1f3a5f;
+    font-weight: bold;
+}
+
+nav li a:hover {
+    background-color: #e4d4b7;
+}
+
+/* Contenido principal centrado */
+main {
+    max-width: 1000px;
+    margin: 25px auto;
+    padding: 0 15px;
+}
+
+h1, h2, h3 {
+    color: #1f3a5f;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #d4c5a9;
+    margin: 15px 0;
+}
+
+a {
+    color: #1f3a5f;
+}
+
+/* Tablas centradas */
+table {
+    border-collapse: collapse;
+    margin: 15px auto;
+    background-color: #fffdf8;
+}
+
+th, td {
+    border: 1px solid #cbbca0;
+    padding: 8px 12px;
+}
+
+th {
+    background-color: #efe3cc;
+    color: #1f3a5f;
+}
+
+/* Formularios dentro de celdas */
+td form {
+    display: inline-block;
+    margin: 2px;
+}
+
+/* Campos y botones sencillos */
+input, select, button {
+    font-family: inherit;
+    padding: 5px 8px;
+    border: 1px solid #bfae8e;
+    border-radius: 4px;
+}
+
+input, select {
+    background-color: #ffffff;
+}
+
+button {
+    background-color: #f3ead8;
+    color: #1f3a5f;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #e4d4b7;
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Ventanas emergentes */
+[popover] {
+    background-color: #fffdf8;
+    border: 1px solid #bfae8e;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: left;
 }
 
 /* Mensajes de error en login */
 .error {
-    color: red;
+    color: #c0392b;
+    font-weight: bold;
 }
 
 /* Ancho fijo para el campo cantidad en productos y facturas */

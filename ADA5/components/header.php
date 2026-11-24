@@ -5,7 +5,10 @@ foreach (($_SESSION['carrito'] ?? []) as $item) {
 }
 ?>
 <header>
-    <h1>Let's go vet</h1>
+    <h1>
+        <img src="media/imagenes/logo.png" alt="Logo Let's go vet" class="logo">
+        Let's go vet
+    </h1>
 
     <div>
         <?php if (isset($_SESSION['usuario'])): ?>

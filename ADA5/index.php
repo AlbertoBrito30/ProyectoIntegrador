@@ -1,4 +1,5 @@
 <?php
+ob_start();
 require_once __DIR__ . '/config/sesion.php';
 
 $page = $_GET['page'] ?? '';
